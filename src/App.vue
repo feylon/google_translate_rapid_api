@@ -1,30 +1,39 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  salom
 </template>
+<script setup>
+import axios from 'axios';
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+let git = async ()=>{
+  const url = 'https://text-translator2.p.rapidapi.com/translate';
+const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/x-www-form-urlencoded',
+		'X-RapidAPI-Key': '0c0a2b9cecmsh03918711380315bp1921d6jsn69a311209e72',
+		'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
+	},
+	body: new URLSearchParams({
+		source_language: 'en',
+		target_language: 'uz',
+		text: '?'
+	})
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+  // result = 
+  console.log(JSON.parse(result).data.translatedText);
+} catch (error) {
+	console.error(error);
+  
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+
+let langs = ["Afrikaans","af","Albanian","sq","Amharic","am","Arabic","ar","Armenian","hy","Azerbaijani","az","Basque","eu","Belarusian","be","Bengali","bn","Bosnian","bs","Bulgarian","bg","Catalan","ca","Cebuano","ceb","Chichewa","ny","Chinese (Simplified)","zh-CN","Chinese (Traditional)","zh-TW","Corsican","co","Croatian","hr","Czech","cs","Danish","da","Dutch","nl","English","en","Esperanto","eo","Estonian","et","Filipino","tl","Finnish","fi","French","fr","Frisian","fy","Galician","gl","Georgian","ka","German","de","Greek","el","Gujarati","gu","Haitian Creole","ht","Hausa","ha","Hawaiian","haw","Hebrew","iw","Hindi","hi","Hmong","hmn","Hungarian","hu","Icelandic","is","Igbo","ig","Indonesian","id","Irish","ga","Italian","it","Japanese","ja","Javanese","jw","Kannada","kn","Kazakh","kk","Khmer","km","Kinyarwanda","rw","Korean","ko","Kurdish (Kurmanji)","ku","Kyrgyz","ky","Lao","lo","Latin","la","Latvian","lv","Lithuanian","lt","Luxembourgish","lb","Macedonian","mk","Malagasy","mg","Malay","ms","Malayalam","ml","Maltese","mt","Maori","mi","Marathi","mr","Mongolian","mn","Myanmar (Burmese)","my","Nepali","ne","Norwegian","no","Odia (Oriya)","or","Pashto","ps","Persian","fa","Polish","pl","Portuguese","pt","Punjabi","pa","Romanian","ro","Russian","ru","Samoan","sm","Scots Gaelic","gd","Serbian","sr","Sesotho","st","Shona","sn","Sindhi","sd","Sinhala","si","Slovak","sk","Slovenian","sl","Somali","so","Spanish","es","Sundanese","su","Swahili","sw","Swedish","sv","Tajik","tg","Tamil","ta","Tatar","tt","Telugu","te","Thai","th","Turkish","tr","Turkmen","tk","Ukrainian","uk","Urdu","ur","Uyghur","ug","Uzbek","uz","Vietnamese","vi","Welsh","cy","Xhosa","xh","Yiddish","yi","Yoruba","yo","Zulu","zu","Hebrew","he","Chinese (Simplified)","zh"]
+// console.log(langs)
+}  
+;
+git()
+</script>
+<style></style>
