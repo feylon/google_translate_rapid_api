@@ -136,7 +136,7 @@ let dark = ref(false);
 
 let text_change = async ()=>{
 load.value = true;
-console.log(left.value, right.value);
+// console.log(left.value, right.value);
   const url = 'https://text-translator2.p.rapidapi.com/translate';
 const options = {
 	method: 'POST',
@@ -156,10 +156,12 @@ try {
 	const response = await fetch(url, options);
 	const result = await response.text();
   // result = 
-  console.log(JSON.parse(result).data);
+//   console.log(JSON.parse(result).data);
   translate.value = JSON.parse(result).data.translatedText;
 } catch (error) {
 	alert(error);
+	load.value = false;
+
   
 }
 
