@@ -44,7 +44,7 @@
 				</li>
 				<li>
 					<select v-model="left" name="" :class="dark ?'text-light bg-dark':''" id="" class="form-control">
-						<option v-for="(i,j) in lang" :value="lang_item[j]">{{ i }}</option>
+						<option v-for="(i,j) in lang" :key="j" :value="lang_item[j]">{{ i }}</option>
 					</select>
 				</li>
 
@@ -85,7 +85,7 @@
 				</li>
 				<li>
 					<select :class="dark ?'text-light bg-dark':''" v-model="right" name="" id="" class="form-control   d-block">
-						<option v-for="(i,j) in lang" :value="lang_item[j]">{{ i }}</option>
+						<option v-for="(i,j) in lang" :key="j" :value="lang_item[j]">{{ i }}</option>
 					</select>
 				</li>
 
